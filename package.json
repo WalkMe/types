@@ -1,0 +1,29 @@
+{
+  "name": "@walkme/types",
+  "version": "0.0.1",
+  "description": "A public declaration if walkme types",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "webpack",
+    "build:dev": "npm run build -- --mode development",
+    "release": "npm run build -- --mode production && npm publish",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WalkMe/types.git"
+  },
+  "author": "eli.b",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WalkMe/types/issues"
+  },
+  "homepage": "https://github.com/WalkMe/types#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}

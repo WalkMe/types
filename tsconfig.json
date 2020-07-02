@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "declaration": true,
+    "outDir": "dist",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "sourceMap": true
+  },
+  "exclude": ["node_modules"],
+  "files": ["./index.ts"]
+}
