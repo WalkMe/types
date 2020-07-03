@@ -1,10 +1,17 @@
 import { Quiz } from './quiz';
 import { ContentItem, ContentProperties } from '../../data/content';
-
-export class Course {
+import { WalkMeDataQuiz } from '../../data';
+export class CourseBase {
   id: number;
   title: string;
   items: Array<CourseItem>;
+}
+
+export class BuildCourse extends CourseBase {
+  quiz: WalkMeDataQuiz;
+}
+
+export class Course extends CourseBase {
   quiz: Quiz;
   properties: CourseProperties;
 }

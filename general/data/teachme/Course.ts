@@ -1,9 +1,9 @@
-import { WalkMeDataItem } from '../.';
+import { WalkMeDataCollectionItem } from '../collection';
 import { ItemId, BooleanStringOption } from './General';
 import { WalkMeDataLesson } from './Lesson';
 import { WalkMeDataQuiz } from './Quiz';
 
-export interface WalkMeDataCourse extends WalkMeDataItem {
+export interface WalkMeDataCourse extends WalkMeDataCollectionItem {
   Id: ItemId;
   GroupType: 4;
   LinkedDeployables: Array<WalkMeDataLesson>;

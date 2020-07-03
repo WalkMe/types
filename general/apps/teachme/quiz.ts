@@ -1,5 +1,4 @@
 import { QuestionType } from '../../data/teachme/Quiz';
-
 export type Quiz = {
   id: number;
   welcomeScreen: QuizScreen;

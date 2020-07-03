@@ -25,7 +25,7 @@ export type WalkMeDataQuizScreen = {
 };
 
 export type WalkMeDataQuizQuestion = {
-  Id: 9941;
+  Id: number;
   /**
    * The question text
    */
