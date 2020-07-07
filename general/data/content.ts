@@ -1,30 +1,6 @@
 export declare type ContentCollection = {
   [type in TypeName]?: Array<ContentItem>;
 };
-export declare enum TypeName {
-  Video = 'video',
-  Article = 'article',
-  Launcher = 'launcher',
-  ShoutOut = 'shoutOut',
-  Shuttle = 'shuttle',
-  SmartWalkThru = 'smart-walkthru',
-  Survey = 'survey',
-  Task = 'task',
-  Course = 'course',
-  Lesson = 'lesson',
-  Walkthru = 'walkthru',
-  Category = 'category',
-  Tab = 'tab',
-  Experiments = 'experiments',
-  SearchProviderUrl = 'search-provider-url',
-  Tag = 'tag',
-  TrackedElement = 'trackedElement',
-  TrackedPage = 'trackedPage',
-  SupportItem = 'support',
-  SearchResult = 'search-result',
-  HelpDesk = 'helpDesk',
-  SmartTipSet = 'smartTipSet',
-}
 export interface ContentItem {
   /** The type name */
   type: TypeName | string;
@@ -94,7 +70,35 @@ export interface DataOptions {
   refresh?: boolean;
 }
 export declare type ContentObject = object;
-export declare enum LegacyTypes {
+
+export enum TypeName {
+  SmartTipSet = 'smartTipSet',
+  Video = 'video',
+  Article = 'article',
+  Content = 'content',
+  Launcher = 'launcher',
+  ShoutOut = 'shoutOut',
+  Shuttle = 'shuttle',
+  SmartWalkThru = 'smartwalkthru',
+  Survey = 'survey',
+  Task = 'task',
+  Course = 'course',
+  Lesson = 'lesson',
+  Walkthru = 'walkthru',
+  Category = 'category',
+  Tab = 'tab',
+  Experiments = 'experiments',
+  SearchProviderUrl = 'searchProviderUrl',
+  Tag = 'tag',
+  TrackedElement = 'trackedElement',
+  TrackedPage = 'trackedPage',
+  SupportItem = 'support',
+  SearchResult = 'searchResult',
+  HelpDesk = 'helpDesk',
+  Folder = 'folder',
+}
+
+export enum TypeId {
   Walkthru = 0,
   Task = 1,
   Launcher = 2,
@@ -103,12 +107,16 @@ export declare enum LegacyTypes {
   AbExperiment = 5,
   Category = 6,
   Content = 7,
+  Video = 7,
+  Article = 7,
   Collection = 8,
   Shuttle = 9,
   Tag = 10,
   ShoutOut = 14,
   ConditionBlock = 17,
   BusinessSolution = 19,
+  SmartTipSet = 19,
+  SmartWalkThru = 19,
   Lesson = 20,
   Course = 21,
   TrackedPage = 22,
