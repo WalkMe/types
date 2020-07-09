@@ -107,8 +107,6 @@ export enum TypeId {
   AbExperiment = 5,
   Category = 6,
   Content = 7,
-  Video = 7,
-  Article = 7,
   Collection = 8,
   Shuttle = 9,
   Tag = 10,
