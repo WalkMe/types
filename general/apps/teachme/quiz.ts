@@ -1,4 +1,28 @@
 import { QuestionType } from '../../data/teachme/Quiz';
+export type BuildQuiz = {
+  id: number;
+  welcomeScreen: QuizScreen;
+  failScreen: QuizScreen;
+  successScreen: QuizScreen;
+  questions: Array<QuizQuestion>;
+  properties: BuildQuizProperties;
+};
+export type BaseQuizProperties = {
+  /** number between 0-100 */
+  passmark: number;
+  /** should allow to review results */
+  showSummary: boolean;
+};
+
+export type BuildQuizProperties = BaseQuizProperties & {
+  /** If set to true, questions will be shuffled */
+  randQuestions: boolean;
+  /** If set to true, answers will be shuffled */
+  randAnswers: boolean;
+  /** If set to true, quiz is only accessible after all course items are completed */
+  forceCourseCompletion: boolean;
+};
+
 export type Quiz = {
   id: number;
   welcomeScreen: QuizScreen;
@@ -8,13 +32,9 @@ export type Quiz = {
   properties: QuizProperties;
 };
 
-export type QuizProperties = {
-  /** number between 0-100 */
-  passmark: number;
+export type QuizProperties = BaseQuizProperties & {
   /** true if the quiz was completed */
   isCompleted: boolean;
-  /** should allow to review results */
-  showSummary: boolean;
   /** Courses can be disabled until course items are completed */
   isDisabled: boolean;
 };
