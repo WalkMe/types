@@ -1,12 +1,22 @@
 import { QuestionType } from '../../data/teachme/Quiz';
-export type BuildQuiz = {
+
+export type BaseQuiz = {
   id: number;
   welcomeScreen: QuizScreen;
   failScreen: QuizScreen;
   successScreen: QuizScreen;
+};
+
+export type Quiz = {
   questions: Array<QuizQuestion>;
+  properties: QuizProperties;
+};
+
+export type BuildQuiz = BaseQuiz & {
+  questions: Array<BuildQuizQuestion>;
   properties: BuildQuizProperties;
 };
+
 export type BaseQuizProperties = {
   /** number between 0-100 */
   passmark: number;
@@ -21,15 +31,6 @@ export type BuildQuizProperties = BaseQuizProperties & {
   randAnswers: boolean;
   /** If set to true, quiz is only accessible after all course items are completed */
   forceCourseCompletion: boolean;
-};
-
-export type Quiz = {
-  id: number;
-  welcomeScreen: QuizScreen;
-  failScreen: QuizScreen;
-  successScreen: QuizScreen;
-  questions: Array<QuizQuestion>;
-  properties: QuizProperties;
 };
 
 export type QuizProperties = BaseQuizProperties & {
@@ -55,9 +56,15 @@ export type QuizQuestion = {
   title: string;
   description: string;
   type: QuestionType;
-  explanation: string;
+  explanation?: string;
   answers: Array<QuizAnswer>;
 };
+
+export type BuildQuizQuestion = QuizQuestion & {
+  properties?: BuildQuizQuestionSettings;
+};
+
+export type BuildQuizQuestionSettings = { hasExplanation?: boolean };
 
 export type QuizAnswer = {
   id: number;

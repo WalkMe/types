@@ -1,20 +1,24 @@
-import { WalkMeDataCollectionItem } from '../collection';
-import { ItemId, BooleanStringOption } from './General';
-import { WalkMeDataLesson } from './Lesson';
+import { GroupType, WalkMeDataCollection } from '../collection';
+import { BooleanStringOption } from '../General';
+import { WalkMeDataLesson, WalkMeDataNewLesson } from './Lesson';
 import { WalkMeDataQuiz } from './Quiz';
+import { WalkMeLink, WalkMeNewLink } from '../link';
+import { WalkMeDataNewItem, WalkMeDataItem } from '..';
 
-export interface WalkMeDataCourse extends WalkMeDataCollectionItem {
-  Id: ItemId;
-  GroupType: 4;
-  LinkedDeployables: Array<WalkMeDataLesson>;
-  Settings: WalkMeDataQuizCourseSettings;
+export interface WalkMeDataBaseCourse<T extends WalkMeLink | WalkMeNewLink>
+  extends WalkMeDataCollection {
+  GroupType: GroupType.Course;
   Quiz: WalkMeDataQuiz;
-  Name: string;
-  Guid?: string;
-  ResourceId: string;
+  Settings: WalkMeDataCourseSettings;
+  LinkedDeployables: Array<T>;
 }
 
-export type WalkMeDataQuizCourseSettings = {
-  onlyPreviousDone: BooleanStringOption;
-  enforceOrder: BooleanStringOption;
+export type WalkMeDataCourse = WalkMeDataItem & WalkMeDataBaseCourse<WalkMeDataLesson | WalkMeLink>;
+
+export type WalkMeDataEditedCourse = WalkMeDataNewItem &
+  WalkMeDataBaseCourse<WalkMeDataNewLesson | WalkMeNewLink>;
+
+export type WalkMeDataCourseSettings = {
+  onlyPreviousDone?: BooleanStringOption;
+  enforceOrder?: BooleanStringOption;
 };

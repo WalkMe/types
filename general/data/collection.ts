@@ -1,10 +1,11 @@
 import { WalkMeDataItem } from '.';
-import { WalkMeLink } from './link';
+import { WalkMeLink, WalkMeNewLink } from './link';
 
-export interface WalkMeDataCollectionItem extends WalkMeDataItem {
-  LinkedDeployables: Array<WalkMeLink>;
+export interface WalkMeDataCollection {
+  LinkedDeployables: Array<WalkMeLink | WalkMeNewLink>;
   GroupType: GroupType;
 }
+export interface WalkMeDataCollectionItem extends WalkMeDataCollection, WalkMeDataItem {}
 
 export enum GroupType {
   Label = 0,
