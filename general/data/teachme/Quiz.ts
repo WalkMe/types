@@ -2,7 +2,7 @@ import { BitBoolean } from '../General';
 import { DISPLAYER_ID } from '..';
 
 export type WalkMeDataQuiz = {
-  Id: number;
+  Id?: number;
   Passmark: number;
   IsEnabled: boolean;
   WelcomePage: WalkMeDataQuizScreen;
@@ -28,7 +28,7 @@ export type WalkMeDataQuizSettings = {
 };
 
 export type WalkMeDataQuizScreen = {
-  Id: number;
+  Id?: number;
   Title: string;
   Description: string;
   ButtonText: string;

@@ -13,7 +13,7 @@ export interface WalkMeDataItemBase {
   IsModified: boolean;
   Settings: any;
   /** random 32 char base 64 string */
-  Guid: string;
+  Guid: string | null;
   /** random 32 char base 64 string */
   ResourceId: string;
   deployableType: TypeId;
@@ -27,6 +27,8 @@ export interface WalkMeDataItem extends WalkMeDataItemBase {
   PublishDataByEnvs: { [environment_id: number]: PublishData };
   UserId: number;
 }
+
+export type WalkMeDataNewItemId = -1;
 
 export enum DISPLAYER_ID {
   POPUP_DISPLAYER_ID = 1,
