@@ -1,13 +1,13 @@
 {
   "name": "@walkme/types",
-  "version": "0.0.2-5",
+  "version": "0.0.2-6",
   "description": "A public declaration if walkme types",
   "main": "dist/main.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "webpack",
     "build:dev": "npm run build -- --mode development",
-      "release": "npm run build -- --mode production && npm publish",
+    "release": "npm run build -- --mode production && npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
