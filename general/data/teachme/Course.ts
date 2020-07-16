@@ -1,9 +1,10 @@
 import { GroupType, WalkMeDataCollection } from '../collection';
-import { BooleanStringOption } from '../General';
-import { WalkMeDataLesson, WalkMeDataNewLesson } from './Lesson';
+import { BitBoolean } from '../General';
+import { WalkMeDataLessonLink, WalkMeDataNewLessonLink } from './Lesson';
 import { WalkMeDataQuiz } from './Quiz';
 import { WalkMeLink, WalkMeNewLink } from '../link';
 import { WalkMeDataNewItem, WalkMeDataItem } from '..';
+import { WalkMeDataCourseTask, WalkMeDataNewCourseTask } from './Task';
 
 export interface WalkMeDataBaseCourse<T extends WalkMeLink | WalkMeNewLink>
   extends WalkMeDataCollection {
@@ -13,12 +14,16 @@ export interface WalkMeDataBaseCourse<T extends WalkMeLink | WalkMeNewLink>
   LinkedDeployables: Array<T>;
 }
 
-export type WalkMeDataCourse = WalkMeDataItem & WalkMeDataBaseCourse<WalkMeDataLesson | WalkMeLink>;
+export type WalkMeDataCourseItem = WalkMeDataLessonLink | WalkMeDataCourseTask;
+export type WalkMeDataCourseNewItem = WalkMeDataNewLessonLink | WalkMeDataNewCourseTask;
 
-export type WalkMeDataEditedCourse = WalkMeDataNewItem &
-  WalkMeDataBaseCourse<WalkMeDataNewLesson | WalkMeNewLink>;
+export type WalkMeDataCourse = WalkMeDataItem & WalkMeDataBaseCourse<WalkMeDataCourseItem>;
+
+export type WalkMeDataNewCourse = WalkMeDataNewItem & WalkMeDataBaseCourse<WalkMeDataCourseNewItem>;
+
+export type WalkMeDataEditedCourse = WalkMeDataItem & WalkMeDataBaseCourse<WalkMeDataCourseNewItem>;
 
 export type WalkMeDataCourseSettings = {
-  onlyPreviousDone?: BooleanStringOption;
-  enforceOrder?: BooleanStringOption;
+  onlyPreviousDone?: BitBoolean;
+  enforceOrder?: BitBoolean;
 };

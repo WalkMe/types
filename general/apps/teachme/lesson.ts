@@ -1,6 +1,8 @@
-import { CourseItem } from './course';
+import { CourseTask, BuildCourseTask } from './course';
 import { TeachMeTypes } from '.';
 
-export interface Lesson extends CourseItem {
-  type: TeachMeTypes.LESSON;
+export interface Lesson extends CourseTask {
+  properties: {};
 }
+
+export interface BuildLesson extends BuildCourseTask {}

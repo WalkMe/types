@@ -21,7 +21,7 @@ export interface ContentItem {
           isInternal: false
         }
         */
-  properties: ContentProperties;
+  properties: ContentProperties | any;
   /** Child items in case of collection */
   childNodes?: Array<ContentItem>;
 }
@@ -49,6 +49,7 @@ export interface ContentProperties {
   isCrossedOff?: boolean;
   isDisabled?: boolean;
 }
+
 export declare enum TabType {
   Help = 'help',
   Tasks = 'tasks',
@@ -72,6 +73,7 @@ export interface DataOptions {
 export declare type ContentObject = object;
 
 export enum TypeName {
+  Unknown = 'unknown',
   SmartTipSet = 'smartTipSet',
   Video = 'video',
   Article = 'article',
@@ -96,9 +98,11 @@ export enum TypeName {
   SearchResult = 'searchResult',
   HelpDesk = 'helpDesk',
   Folder = 'folder',
+  BusinessSolution = 'swtOrSTSet',
 }
 
 export enum TypeId {
+  Unknown = -1,
   Walkthru = 0,
   Task = 1,
   Launcher = 2,

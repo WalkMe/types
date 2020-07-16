@@ -1,4 +1,4 @@
-import { BooleanStringOption } from '../General';
+import { BitBoolean } from '../General';
 import { DISPLAYER_ID } from '..';
 
 export type WalkMeDataQuiz = {
@@ -18,11 +18,11 @@ export type WalkMeDataQuiz = {
 };
 
 export type WalkMeDataQuizSettings = {
-  isQuizResults: BooleanStringOption;
+  isQuizResults: BitBoolean;
   // check data type
-  isLimited?: BooleanStringOption;
-  randQuestions?: BooleanStringOption;
-  randAnswers?: BooleanStringOption;
+  isLimited?: BitBoolean;
+  randQuestions?: BitBoolean;
+  randAnswers?: BitBoolean;
   overlay: any;
   position: number;
 };
@@ -55,7 +55,7 @@ export type WalkMeDataQuizQuestion = {
 };
 
 export type WalkMeDataQuizQuestionSettings = {
-  hasExplanation?: BooleanStringOption;
+  hasExplanation?: BitBoolean;
 };
 
 export type WalkMeDataQuizAnswer = {

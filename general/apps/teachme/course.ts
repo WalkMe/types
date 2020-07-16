@@ -1,15 +1,16 @@
 import { Quiz, BuildQuiz } from './quiz';
 import { ContentItem, ContentProperties } from '../../data/content';
-import { WalkMeDataQuiz } from '../../data';
-export class CourseBase {
+import { WalkMeDataQuiz, CourseTaskCompletionType } from '../../data';
+export class CourseBase<T> {
   id: number;
   title: string;
-  items: Array<CourseItem>;
+  items: Array<T>;
 }
 
-export class BuildCourse extends CourseBase {
+export class BuildCourse extends CourseBase<BuildCourseTask> {
   quiz: BuildQuiz;
   properties: BuildCourseProperties;
+  index: number;
 }
 
 export type BuildCourseProperties = {
@@ -19,7 +20,7 @@ export type BuildCourseProperties = {
   enforceOrder: boolean;
 };
 
-export class Course extends CourseBase {
+export class Course extends CourseBase<CourseTask> {
   quiz: Quiz;
   properties: CourseProperties;
 }
@@ -29,14 +30,23 @@ export type CourseProperties = {
   isCompleted: boolean;
 };
 
-export interface CourseItem extends ContentItem {
+export interface CourseTaskBase extends ContentItem {
   type: string;
-  courseId: number;
-  lessonId?: number;
-  properties: CourseItemProperties;
 }
 
-export interface CourseItemProperties extends ContentProperties {
+export interface BuildCourseTask extends CourseTaskBase {
+  properties: BuildCourseTaskProperties;
+}
+export interface CourseTask extends ContentItem {
+  courseId: number;
+  lessonId?: number;
+  properties: CourseTaskProperties;
+}
+export interface BuildCourseTaskProperties extends ContentProperties {
+  completionType: CourseTaskCompletionType;
+}
+
+export interface CourseTaskProperties extends ContentProperties {
   isDisabled?: boolean;
   isCompleted?: boolean;
 }
