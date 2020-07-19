@@ -1,4 +1,4 @@
-import { QuestionType } from '../../data/teachme/Quiz';
+import { QuestionType } from '../../data/teachme/quiz';
 
 export type BaseQuiz = {
   id: number;

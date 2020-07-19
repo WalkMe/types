@@ -1,5 +1,4 @@
 import { WalkMeLink, WalkMeNewLink } from '../link';
-import { BooleanNumberOption } from '../General';
 
 export interface WalkMeDataCourseTask extends WalkMeLink {
   Settings: WalkMeDataCourseTaskSettings;

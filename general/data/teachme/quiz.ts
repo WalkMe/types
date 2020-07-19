@@ -1,4 +1,4 @@
-import { BitBoolean } from '../General';
+import { BitBoolean } from '../general';
 import { DISPLAYER_ID } from '..';
 
 export type WalkMeDataQuiz = {

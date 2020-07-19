@@ -1,10 +1,10 @@
 import { GroupType, WalkMeDataCollection } from '../collection';
-import { BitBoolean } from '../General';
-import { WalkMeDataLessonLink, WalkMeDataNewLessonLink } from './Lesson';
-import { WalkMeDataQuiz } from './Quiz';
+import { BitBoolean } from '../general';
+import { WalkMeDataLessonLink, WalkMeDataNewLessonLink } from './lesson';
+import { WalkMeDataQuiz } from './quiz';
 import { WalkMeLink, WalkMeNewLink } from '../link';
 import { WalkMeDataNewItem, WalkMeDataItem } from '..';
-import { WalkMeDataCourseTask, WalkMeDataNewCourseTask } from './Task';
+import { WalkMeDataCourseTask, WalkMeDataNewCourseTask } from './task';
 
 export interface WalkMeDataBaseCourse<T extends WalkMeLink | WalkMeNewLink>
   extends WalkMeDataCollection {
