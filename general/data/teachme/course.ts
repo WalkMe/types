@@ -26,4 +26,5 @@ export type WalkMeDataEditedCourse = WalkMeDataItem & WalkMeDataBaseCourse<WalkM
 export type WalkMeDataCourseSettings = {
   onlyPreviousDone?: BitBoolean;
   enforceOrder?: BitBoolean;
+  hasQuiz?: BitBoolean;
 };

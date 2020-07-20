@@ -1,4 +1,5 @@
 import { QuestionType } from '../../data/teachme/quiz';
+import { TypeContainer } from '..';
 
 export type BaseQuiz = {
   id: number;
@@ -13,7 +14,7 @@ export type Quiz = {
 };
 
 export type BuildQuiz = BaseQuiz & {
-  questions: Array<BuildQuizQuestion>;
+  questions: TypeContainer<BuildQuizQuestion, any>;
   properties: BuildQuizProperties;
 };
 
@@ -51,16 +52,30 @@ export type Button = {
   text: string;
 };
 
-export type QuizQuestion = {
+export type BaseQuizQuestion = {
   id: number;
   title: string;
   description: string;
   type: QuestionType;
   explanation?: string;
+};
+
+export type QuizQuestion = BaseQuizQuestion & {
   answers: Array<QuizAnswer>;
 };
 
-export type BuildQuizQuestion = QuizQuestion & {
+export type NewAnswerData = {
+  text?: string;
+  isCorrect?: boolean;
+};
+
+export type NewQuestionData = {
+  text?: string;
+  description?: boolean;
+};
+
+export type BuildQuizQuestion = BaseQuizQuestion & {
+  answers: TypeContainer<QuizAnswer, NewQuestionData>;
   properties?: BuildQuizQuestionSettings;
 };
 

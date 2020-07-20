@@ -1,9 +1,15 @@
-import { WalkMeDataItem } from '.';
+import { WalkMeDataItem, WalkMeDataItemBase } from '.';
 import { WalkMeLink, WalkMeNewLink } from './link';
+import { TypeId } from './content';
 
-export interface WalkMeDataCollection {
+export interface WalkMeDataCollection extends WalkMeDataItemBase {
+  Name: string;
   LinkedDeployables: Array<WalkMeLink | WalkMeNewLink>;
   GroupType: GroupType;
+  Settings: any;
+  deployableType: TypeId;
+  Id: number;
+  Description?: string;
 }
 export interface WalkMeDataCollectionItem extends WalkMeDataCollection, WalkMeDataItem {}
 

@@ -1,16 +1,17 @@
 import { Quiz, BuildQuiz } from './quiz';
-import { ContentItem, ContentProperties } from '../../data/content';
+import { ContentItem, ContentProperties, TypeName } from '../../data/content';
 import { WalkMeDataQuiz, CourseTaskCompletionType } from '../../data';
-export class CourseBase<T> {
+import { TypeContainer } from '..';
+export class CourseBase {
   id: number;
   title: string;
-  items: Array<T>;
 }
 
-export class BuildCourse extends CourseBase<BuildCourseTask> {
-  quiz: BuildQuiz;
+export class BuildCourse extends CourseBase {
+  quiz?: BuildQuiz;
   properties: BuildCourseProperties;
   index: number;
+  items: TypeContainer<CourseTaskBase, NewCourseItemData | NewCourseLessonData>;
 }
 
 export type BuildCourseProperties = {
@@ -18,11 +19,14 @@ export type BuildCourseProperties = {
   enableIfPreviousDone: boolean;
   /** If set to true, course items will be enabled only if all previous items are completed */
   enforceOrder: boolean;
+
+  hasQuiz: boolean;
 };
 
-export class Course extends CourseBase<CourseTask> {
+export class Course extends CourseBase {
   quiz: Quiz;
   properties: CourseProperties;
+  items: Array<CourseTask>;
 }
 
 export type CourseProperties = {
@@ -33,6 +37,15 @@ export type CourseProperties = {
 export interface CourseTaskBase extends ContentItem {
   type: string;
 }
+
+export type NewCourseItemData = {
+  id: number;
+  type: TypeName;
+};
+
+export type NewCourseLessonData = {
+  index: number;
+};
 
 export interface BuildCourseTask extends CourseTaskBase {
   properties: BuildCourseTaskProperties;

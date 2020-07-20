@@ -1,3 +1,5 @@
+import { TypeContainer } from '../apps';
+
 export declare type ContentCollection = {
   [type in TypeName]?: Array<ContentItem>;
 };
@@ -23,7 +25,7 @@ export interface ContentItem {
         */
   properties: ContentProperties | any;
   /** Child items in case of collection */
-  childNodes?: Array<ContentItem>;
+  childNodes?: Array<ContentItem> | TypeContainer<ContentItem, any>;
 }
 export interface ContentProperties {
   /**
