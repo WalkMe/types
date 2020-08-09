@@ -32,6 +32,8 @@ export type BuildQuizProperties = BaseQuizProperties & {
   randAnswers: boolean;
   /** If set to true, quiz is only accessible after all course items are completed */
   forceCourseCompletion: boolean;
+  /** If set to true the quiz will be available in the runtime environment */
+  isEnabled: boolean;
 };
 
 export type QuizProperties = BaseQuizProperties & {
