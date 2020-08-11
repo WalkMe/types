@@ -44,6 +44,7 @@ export type QuizProperties = BaseQuizProperties & {
 };
 
 export type QuizScreen = {
+  id?: number;
   title: string;
   description: string;
   buttons: Array<Button>;
