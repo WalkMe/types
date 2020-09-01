@@ -1,8 +1,6 @@
 import { WalkMeDataItem } from '../../data';
-import { ResourceType } from '.';
+import { ResourceType, ResourceDataItem } from '.';
 
-export interface VideoData extends WalkMeDataItem {
-  Description: string;
-  Url: string;
+export interface VideoData extends ResourceDataItem {
   Type: ResourceType.Video;
 }
