@@ -1,7 +1,10 @@
-import { WalkMeDataItem } from '../../data';
+import { WalkMeDataItem, WalkMeDataNewItem } from '../../data';
 
-export interface ResourceDataItem extends WalkMeDataItem {
-  Description: string;
+export interface ResourceDataItem extends ResourceDataItemBase, WalkMeDataItem {}
+export interface ResourceNewDataItem extends ResourceDataItemBase, WalkMeDataNewItem {}
+
+export interface ResourceDataItemBase {
+  Description?: string;
   Url: string;
   Type: ResourceType;
 }
