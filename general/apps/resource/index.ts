@@ -26,6 +26,7 @@ export enum ResourcePlayMode {
   Widget = 0,
   LightBox = 1,
   NewTab = 2,
+  SameTab = 3,
 }
 
 export enum LightBoxSizeType {
