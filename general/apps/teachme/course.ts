@@ -21,6 +21,10 @@ export type BuildCourseProperties = {
   enforceOrder: boolean;
 
   hasQuiz: boolean;
+
+  baseCoverImage?: string;
+  squareCoverImage?: string;
+  rectangleCoverImage?: string;
 };
 
 export class Course extends CourseBase {
