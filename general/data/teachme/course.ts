@@ -27,4 +27,7 @@ export type WalkMeDataCourseSettings = {
   onlyPreviousDone?: BitBoolean;
   enforceOrder?: BitBoolean;
   hasQuiz?: BitBoolean;
+  baseCoverImage?: string;
+  squareCoverImage?: string;
+  rectangleCoverImage?: string;
 };
