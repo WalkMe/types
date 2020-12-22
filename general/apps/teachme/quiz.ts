@@ -23,12 +23,6 @@ export type BaseQuizProperties = {
   passmark: number;
   /** should allow to review results */
   showSummary: boolean;
-  /** should reveal chosen answer after submit */
-  revealChosenAnswer: boolean;
-  /** should reveal correct answer after submit */
-  revealCorrectAnswers: boolean;
-  /** should show explanation after submit */
-  showExplanation: boolean;
 };
 
 export type BuildQuizProperties = BaseQuizProperties & {
