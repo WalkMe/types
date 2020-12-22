@@ -25,6 +25,9 @@ export type WalkMeDataQuizSettings = {
   randAnswers?: BitBoolean;
   overlay: any;
   position: number;
+  revealChosenAnswer: boolean;
+  revealCorrectAnswers: boolean;
+  showExplanation: boolean;
 };
 
 export type WalkMeDataQuizScreen = {
